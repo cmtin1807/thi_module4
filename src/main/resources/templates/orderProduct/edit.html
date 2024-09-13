@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chỉnh sửa đơn hàng</title>
+</head>
+<body>
+<h2>Chỉnh sửa đơn hàng</h2>
+
+<form th:action="@{/order-products/update}" th:object="${orderProduct}" method="post">
+
+    <input type="hidden" th:field="*{id}">
+
+    <label for="product">Tên sản phẩm:</label>
+    <input type="text" id="product" th:field="*{product.nameProduct}" readonly/><br/>
+
+    <label for="dateBuy">Ngày mua:</label>
+    <input type="date" id="dateBuy" th:field="*{dateBuy}"/><br/>
+
+    <label for="quantity">Số lượng:</label>
+    <input type="number" id="quantity" th:field="*{quantity}"/><br/>
+
+
+    <input type="hidden" id="productId" th:field="*{product.id}"/><br/>
+
+    <button type="submit">Lưu</button>
+</form>
+
+</body>
+</html>
